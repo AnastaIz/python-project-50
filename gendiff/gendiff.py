@@ -16,6 +16,6 @@ def generate_diff(file_path1, file_path2):
         elif data1[key] == data2[key]:
             result.append(f'  {key}: {data1[key]}')
         else:
-            result.append(f'+ {key}: {data1[key]}')
+            result.append(f'- {key}: {data1[key]}')
             result.append(f'+ {key}: {data2[key]}')
     return '\n'.join(itertools.chain("{", result, "}"))
