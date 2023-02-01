@@ -2,7 +2,7 @@ import json
 import itertools
 
 
-def generate_diff(file_path1, file_path2):
+def generate_diff(file_path1, file_path2, replacer='  '):
     data1 = json.load(open(file_path1))
     data2 = json.load(open(file_path2))
 
@@ -10,12 +10,12 @@ def generate_diff(file_path1, file_path2):
     result = []
     for key in keys:
         if key not in data1:
-            result.append(f'+ {key}: {data2[key]}')
+            result.append(replacer + f'+ {key}: {data2[key]}'.lower())
         elif key not in data2:
-            result.append(f'- {key}: {data1[key]}')
+            result.append(replacer + f'- {key}: {data1[key]}'.lower())
         elif data1[key] == data2[key]:
-            result.append(f'  {key}: {data1[key]}')
+            result.append(replacer + f'  {key}: {data1[key]}'.lower())
         else:
-            result.append(f'- {key}: {data1[key]}')
-            result.append(f'+ {key}: {data2[key]}')
+            result.append(replacer + f'- {key}: {data1[key]}'.lower())
+            result.append(replacer + f'+ {key}: {data2[key]}'.lower())
     return '\n'.join(itertools.chain("{", result, "}"))
