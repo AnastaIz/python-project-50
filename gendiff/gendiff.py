@@ -1,4 +1,4 @@
-from data_parser import open_file
+from gendiff.data_parser import open_file
 import itertools
 
 
