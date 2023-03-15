@@ -1,6 +1,6 @@
 import json
 from gendiff.diff import diff
-from gendiff.json_f import json_
+from gendiff.formatters.json_f import json_
 from gendiff.data_parser import open_file
 
 

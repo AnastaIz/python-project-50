@@ -1,6 +1,6 @@
 from gendiff.data_parser import open_file
 from gendiff.diff import diff
-from gendiff.plain import plain
+from gendiff.formatters.plain import plain
 
 
 def test_plain():
