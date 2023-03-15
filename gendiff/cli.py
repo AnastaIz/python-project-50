@@ -1,7 +1,7 @@
 import argparse
 
 
-def parse_args_cli():
+def parse_args_cli(argv=None):
     parser = argparse.ArgumentParser(
         description="Compares two configuration files and shows a difference."
     )
@@ -11,4 +11,4 @@ def parse_args_cli():
                         default='stylish',
                         choices=['stylish', 'plain', 'json'],
                         help="set format of output")
-    return parser.parse_args()
+    return parser.parse_args(argv)
