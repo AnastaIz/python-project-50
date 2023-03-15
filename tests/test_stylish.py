@@ -1,6 +1,6 @@
 from gendiff.data_parser import open_file
 from gendiff.diff import diff
-from gendiff.stylish import stylish
+from gendiff.formatters.stylish import stylish
 
 
 def test_stylish():
