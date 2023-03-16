@@ -22,25 +22,21 @@ def plain(value):
 
         for key, val in current_value.items():
             if isinstance(val, dict) and 'type' in val:
-                if val['type'] == ADDED:
-                    lines.append(
-                        f"Property '{prop + key}' was {ADDED} "
-                        f"with value: {modify_value(val['value'])}"
-                    )
+                status = val.get('type')
+                path = prop + key
+                line = f'Property {path} was {status}'
+                if status == ADDED:
+                    lines.append(line +
+                                 f" with value: {modify_value(val.get('value'))}")
 
-                elif val['type'] == REMOVED:
-                    lines.append(
-                        f"Property '{prop + key}' was {REMOVED}"
-                    )
+                elif status == REMOVED:
+                    lines.append(line)
 
-                elif val['type'] == UPDATED:
-                    lines.append(
-                        f"Property '{prop + key}' was {UPDATED}. "
-                        f"From {modify_value(val['value1'])} "
-                        f"to {modify_value(val['value2'])}"
-                    )
+                elif status == UPDATED:
+                    lines.append(line + f". From {modify_value(val.get('value1'))} "
+                                        f"to {modify_value(val.get('value2'))}")
                 else:
-                    lines.append(walk(val['value'], prop + key + '.'))
+                    lines.append(walk(val.get('value'), prop + key + '.'))
 
         return '\n'.join([line for line in lines if 'Property' in line])
 
