@@ -27,7 +27,7 @@ gendiff 'file_path1.json' 'file_path2.json'
 * stylish (по умолчанию)
 
 ```bash
-gendiff 'file_path1.json' 'file_path2.json' -f 'plain'
+gendiff 'file_path1.yml' 'file_path2.yml' -f 'plain'
 ```
 
 ### Пример вывода в формате PLAIN:
