@@ -24,7 +24,7 @@ def plain(value):
             if isinstance(val, dict) and 'type' in val:
                 status = val.get('type')
                 path = prop + key
-                line = f'Property {path} was {status}'
+                line = f"Property '{path}' was {status}"
                 if status == ADDED:
                     lines.append(line +
                                  f" with value: {modify_value(val.get('value'))}")
