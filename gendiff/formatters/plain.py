@@ -28,8 +28,8 @@ def plain(value):
                 path = prop + key
                 line = f"Property '{path}' was {status}"
                 if status == ADDED:
-                    lines.append(line +
-                                 f" with value: {modify_value(val.get('value'))}")
+                    lines.append(line + f" with value: "
+                                 f"{modify_value(val.get('value'))}")
 
                 elif status == REMOVED:
                     lines.append(line)
