@@ -17,10 +17,18 @@ gendiff -h
 
 Для сравнения двух файлов необходимо передать пути до файлов. Утилита поддерживает файлы JSON или YAML(YML).
 
+```bash
+gendiff 'file_path1.json' 'file_path2.json'
+```
+
 Результат сравнения файлов может выводиться в разных форматах: 
 * plain ("плоский"),
 * json ("JSON-формат"),
 * stylish (по умолчанию)
+
+```bash
+gendiff 'file_path1.json' 'file_path2.json' -f 'plain'
+```
 
 ### Пример вывода в формате PLAIN:
 
