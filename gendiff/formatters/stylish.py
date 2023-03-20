@@ -6,7 +6,7 @@ PLUS_SYMBOL = '+ '
 MINUS_SYMBOL = '- '
 
 
-def normalize_value(value):
+def to_string(value):
     if value is None:
         return 'null'
     elif isinstance(value, bool):
@@ -19,7 +19,7 @@ def stylish(value, replacer=' ', spaces_count=4):
 
     def iter_(current_value, depth):
         if not isinstance(current_value, dict):
-            return normalize_value(current_value)
+            return to_string(current_value)
 
         deep_indent_size = depth + spaces_count
         deep_indent = replacer * deep_indent_size

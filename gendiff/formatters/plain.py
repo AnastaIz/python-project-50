@@ -1,7 +1,7 @@
 from gendiff.diff import ADDED, REMOVED, UPDATED
 
 
-def modify_value(value):
+def to_string(value):
     if isinstance(value, dict):
         return '[complex value]'
     elif isinstance(value, bool):
@@ -29,14 +29,14 @@ def plain(value):
                 line = f"Property '{path}' was {status}"
                 if status == ADDED:
                     lines.append(line + f" with value: "
-                                 f"{modify_value(val.get('value'))}")
+                                 f"{to_string(val.get('value'))}")
 
                 elif status == REMOVED:
                     lines.append(line)
 
                 elif status == UPDATED:
-                    lines.append(line + f". From {modify_value(val.get('value1'))} "
-                                        f"to {modify_value(val.get('value2'))}")
+                    lines.append(line + f". From {to_string(val.get('value1'))} "
+                                        f"to {to_string(val.get('value2'))}")
                 else:
                     lines.append(walk(val.get('value'), prop + key + '.'))
 
