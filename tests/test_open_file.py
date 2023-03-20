@@ -1,5 +1,5 @@
 import pytest
-from gendiff.data_parser import open_file
+from gendiff.open_file import open_file
 
 
 def test_open_file():

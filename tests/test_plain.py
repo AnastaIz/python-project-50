@@ -1,4 +1,4 @@
-from gendiff.data_parser import open_file
+from gendiff.open_file import open_file
 from gendiff.diff import diff
 from gendiff.formatters.plain import plain
 
